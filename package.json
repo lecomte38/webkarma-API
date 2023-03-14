@@ -1,0 +1,126 @@
+{
+  "name": "webkarma",
+  "version": "1.0.0",
+  "description": "Webkarma API",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UE304-Webkarma/webkarma-API.git"
+  },
+  "keywords": [
+    "nestjs",
+    "backend",
+    "api",
+    "webkarma"
+  ],
+  "author": "Lecomte Nicolas",
+  "license": "GPL-3.0",
+  "private": true,
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@nestjs/common": "^8.4.7",
+    "@nestjs/config": "^1.2.1",
+    "@nestjs/core": "^8.4.7",
+    "@nestjs/mapped-types": "^1.2.2",
+    "@nestjs/mongoose": "^9.2.1",
+    "@nestjs/platform-express": "^8.4.7",
+    "@nestjs/typeorm": "^8.1.4",
+    "@types/faker": "^5.5.9",
+    "mongoose": "^6.10.3",
+    "mysql2": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.8.0",
+    "typeorm": "^0.2.45"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^8.2.8",
+    "@nestjs/schematics": "^8.0.11",
+    "@nestjs/testing": "^8.4.7",
+    "@types/express": "^4.17.17",
+    "@types/jest": "27.0.2",
+    "@types/jest-json-schema": "^2.1.4",
+    "@types/node": "^16.18.16",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^27.5.1",
+    "jest-json-schema": "^6.1.0",
+    "jest-junit-reporter": "^1.1.0",
+    "jest-sonar": "^0.2.15",
+    "jest-sonar-reporter": "^2.0.0",
+    "prettier": "^2.8.4",
+    "source-map-support": "^0.5.20",
+    "supertest": "^6.3.3",
+    "ts-jest": "^27.1.5",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^3.14.2",
+    "typescript": "^4.9.5"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": ".",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s",
+      "**/*.spec.ts"
+    ],
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node",
+    "reporters": [
+      "default",
+      "jest-sonar"
+    ],
+    "coverageReporters": [
+      "cobertura",
+      "text",
+      "lcov"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/coverage/",
+      "/test/",
+      "/dist/",
+      "/node_modules/",
+      ".eslintrc.js",
+      "main.ts",
+      ".*.module.ts",
+      ".*.dto.ts",
+      ".*.schema.ts",
+      ".*.entity.ts"
+    ],
+    "testResultsProcessor": "jest-sonar-reporter"
+  },
+  "jestSonar": {
+    "reportFile": "sonar-test-report.xml",
+    "indent": 4
+  },
+  "jestTestResultProcessors": [
+    "jest-junit-reporter",
+    "jest-sonar-reporter"
+  ]
+}
