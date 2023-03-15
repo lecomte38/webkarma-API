@@ -64,7 +64,7 @@ describe('UsersController', () => {
       test('Then it should call usersService', () => {
         expect(usersService.findByMail).toHaveBeenCalledWith(usersStub());
       });
-      test('Then it should return a site', () => {
+      test('Then it should return a user', () => {
         expect(users).toEqual(usersStub());
       });
     });

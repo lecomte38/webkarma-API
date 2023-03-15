@@ -31,6 +31,7 @@ describe('UsersService', () => {
     });
   });
 
+  /* Find One User */
   describe('findOne ', () => {
     it('should return an array of the user', async () => {
       usersService.findOne = jest.fn();
@@ -39,6 +40,16 @@ describe('UsersService', () => {
     });
   });
 
+  /* Find User By Mail */
+  describe('findByMail ', () => {
+    it('should return an array of the user', async () => {
+      usersService.findByMail = jest.fn();
+      expect(usersService.findByMail);
+      console.log('Test Service : Should find one user => 200');
+    });
+  });
+
+  /* Create User */
   describe('create ', () => {
     it('should return an array of new user', async () => {
       usersService.create = jest.fn();
@@ -47,6 +58,7 @@ describe('UsersService', () => {
     });
   });
 
+  /* Update User */
   describe('update ', () => {
     it('should return status of the modification', async () => {
       usersService.update = jest.fn();
@@ -55,7 +67,8 @@ describe('UsersService', () => {
     });
   });
 
-  describe('UserService.remove ', () => {
+  /* Remove User */
+  describe('remove ', () => {
     it('should return status of the deletion', async () => {
       usersService.remove = jest.fn();
       expect(usersService.remove);

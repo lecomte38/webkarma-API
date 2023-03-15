@@ -22,44 +22,57 @@ describe('SitesService', () => {
     expect(sitesService).toBeDefined();
   });
   
-  /* Find All Users */
+  /* Find All Sites */
   describe('findAll', () => {
-    it('should return an array of users', async () => {
+    it('should return an array of sites', async () => {
       sitesService.findAll = jest.fn();
       expect(sitesService.findAll);
-      console.log('Test Service : Should find all users => 200');
+      console.log('Test Service : Should find all sites => 200');
     });
   });
 
+  /* Find One Site */
   describe('findOne ', () => {
-    it('should return an array of the user', async () => {
+    it('should return an array of the site', async () => {
       sitesService.findOne = jest.fn();
       expect(sitesService.findOne);
-      console.log('Test Service : Should find one user => 200');
+      console.log('Test Service : Should find one site => 200');
     });
   });
 
+  /* Find Site By Url */
+  describe('findByUrl ', () => {
+    it('should return an array of the site', async () => {
+      sitesService.findByUrl = jest.fn();
+      expect(sitesService.findByUrl);
+      console.log('Test Service : Should find one site => 200');
+    });
+  });
+
+  /* Create Site */
   describe('create ', () => {
-    it('should return an array of new user', async () => {
+    it('should return an array of new site', async () => {
       sitesService.create = jest.fn();
       expect(sitesService.create);
-      console.log('Test Service : Should create the user => 201');
+      console.log('Test Service : Should create the site => 201');
     });
   });
 
+  /* Update Site */
   describe('update ', () => {
     it('should return status of the modification', async () => {
       sitesService.update = jest.fn();
       expect(sitesService.update);
-      console.log('Test Service : Update a user => 200');
+      console.log('Test Service : Update a site => 200');
     });
   });
 
-  describe('UserService.remove ', () => {
+  /* Remove Site */
+  describe('remove ', () => {
     it('should return status of the deletion', async () => {
       sitesService.remove = jest.fn();
       expect(sitesService.remove);
-      console.log('Test Service : Delete a user => 200');
+      console.log('Test Service : Delete a site => 200');
     });
   });
 
