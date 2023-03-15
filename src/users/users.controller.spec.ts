@@ -54,6 +54,22 @@ describe('UsersController', () => {
     });
   });
 
+  /* Find One Site By URL */
+  describe('findByMail', () => {
+    describe('When findByMail is called', () => {
+      let users: Users;
+      beforeEach(async () => {
+        users = await usersController.findByMail(usersStub());
+      });
+      test('Then it should call usersService', () => {
+        expect(usersService.findByMail).toHaveBeenCalledWith(usersStub());
+      });
+      test('Then it should return a site', () => {
+        expect(users).toEqual(usersStub());
+      });
+    });
+  });
+
   /* Create One User */
   describe('create', () => {
     describe('When create is called', () => {
