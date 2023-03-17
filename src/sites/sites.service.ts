@@ -30,7 +30,7 @@ export class SitesService {
   async findByUrl(createSiteDto) {
     let sites;
     try {
-      sites = await this.sitesModel.find({ url: createSiteDto.url });
+      sites = await this.sitesModel.find({ domain: createSiteDto.domain });
     } catch (error) {
       throw new NotFoundException("Le site web n'a pas été trouvé dans notre base de donnée")
     }
@@ -39,7 +39,7 @@ export class SitesService {
 
   async create(createSiteDto: CreateSiteDto): Promise<SitesDocument> {
     const newSite = {
-      "url": createSiteDto.domain,
+      "domain": createSiteDto.domain,
       "footprint": createSiteDto.footprint
     };
     const createSite = await new this.sitesModel(newSite);
