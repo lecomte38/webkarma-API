@@ -9,10 +9,7 @@ export class Sites {
   id: string;
   
   @Prop()
-  url: string;
-
-  @Prop()
-  green: boolean;
+  domain: string;
 
   @Prop()
   footprint: string;

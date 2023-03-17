@@ -39,8 +39,7 @@ export class SitesService {
 
   async create(createSiteDto: CreateSiteDto): Promise<SitesDocument> {
     const newSite = {
-      "url": createSiteDto.url,
-      "green": createSiteDto.green,
+      "url": createSiteDto.domain,
       "footprint": createSiteDto.footprint
     };
     const createSite = await new this.sitesModel(newSite);

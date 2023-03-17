@@ -12,7 +12,7 @@ export class Users {
   email: string;
 
   @Prop()
-  points: string;
+  webkarma: string;
 }
 
 export const UsersSchema = SchemaFactory.createForClass(Users);

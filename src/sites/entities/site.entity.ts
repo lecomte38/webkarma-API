@@ -1,6 +1,5 @@
 export class Sites {
   id: string;
-  url: string;
-  green: boolean;
+  domain: string;
   footprint: string;
 }
