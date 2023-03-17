@@ -20,7 +20,7 @@ export class UsersController {
   @Post('users/mail/')
   async findByMail(@Body() createUserDto: CreateUserDto) {
     let request = await this.usersService.findByMail(createUserDto);
-    if (request = []) {
+    if (request.length === 0) {
       return this.usersService.create(createUserDto);
     } else {
       return request

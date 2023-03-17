@@ -25,7 +25,7 @@ export class SitesController {
   @Post('sites/url/')
   async findByUrl(@Body() createSiteDto: CreateSiteDto) {
     let request = await this.sitesService.findByUrl(createSiteDto);
-    if (request = []) {
+    if (request.length === 0) {
       return this.sitesService.create(createSiteDto);
     } else {
       return request
