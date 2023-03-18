@@ -5,5 +5,6 @@ export const usersStub = (): Users => {
     id: '6400b3481326feceec86103e',
     email: 'Testing@mail.com',
     webkarma: '0',
+    role: 'USER'
   };
 };

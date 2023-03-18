@@ -13,6 +13,9 @@ export class Users {
 
   @Prop()
   webkarma: string;
+
+  @Prop()
+  role: string;
 }
 
 export const UsersSchema = SchemaFactory.createForClass(Users);

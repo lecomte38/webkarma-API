@@ -23,13 +23,26 @@ export class UsersController {
     if (request.length === 0) {
       return this.usersService.create(createUserDto);
     } else {
-      return request
+      let obj = {
+        _id: request[0]._id,
+        email: request[0].email,
+        webkarma: request[0].webkarma,
+        role: request[0].role
+      };
+      return obj;
     }
   }
 
   @Post('users/new')
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
+  async create(@Body() createUserDto: CreateUserDto) {
+    let request = await this.usersService.findByMail(createUserDto);
+    if (request.length === 0) {
+      request = this.usersService.create(createUserDto);
+      return request;
+    } else {
+      request = { status: "L'utilisateur éxiste déjà dans notre base de données." };
+      return request;
+    }
   }
 
   @Put('users/update/:id')

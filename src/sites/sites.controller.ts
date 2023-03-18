@@ -12,11 +12,6 @@ export class SitesController {
     return this.sitesService.findAll();
   }
 
-  @Post('sites/new')
-  create(@Body() createSiteDto: CreateSiteDto) {
-    return this.sitesService.create(createSiteDto);
-  }
-
   @Get('sites/:id')
   findOne(@Param('id') id: string) {
     return this.sitesService.findOne(id);
@@ -28,6 +23,23 @@ export class SitesController {
     if (request.length === 0) {
       return this.sitesService.create(createSiteDto);
     } else {
+      let obj = {
+        _id: request[0]._id,
+        domain: request[0].domain,
+        footprint: request[0].footprint
+      };
+      return obj;
+    }
+  }
+
+  @Post('sites/new')
+  async create(@Body() createSiteDto: CreateSiteDto) {
+    let request = await this.sitesService.findByUrl(createSiteDto);
+    if (request.length === 0) {
+      request = this.sitesService.create(createSiteDto);
+      return request
+    } else {
+      request = { status: 'Le site web éxiste déjà dans notre base de données.' }
       return request
     }
   }

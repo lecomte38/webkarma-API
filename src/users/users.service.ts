@@ -40,7 +40,8 @@ export class UsersService {
   async create(createUserDto: CreateUserDto): Promise<UsersDocument> {
     const newUser = {
       "email": createUserDto.email,
-      "webkarma": "0"
+      "webkarma": "0",
+      "role": "USER",
     };
     const createUser = await new this.usersModel(newUser);
     return createUser.save();
