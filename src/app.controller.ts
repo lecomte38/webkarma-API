@@ -11,11 +11,11 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('google')
+  @Get('api/google')
   @UseGuards(AuthGuard('google'))
   async googleAuth(@Req() req) {}
 
-  @Get('google/redirect')
+  @Get('api/google/redirect')
   @UseGuards(AuthGuard('google'))
   googleAuthRedirect(@Req() req) {
     return this.appService.googleLogin(req)
