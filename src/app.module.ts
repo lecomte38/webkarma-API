@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SitesModule } from './sites/sites.module';
+import { GoogleStrategy } from './google.strategy'
 
 @Module({
   imports: [
@@ -14,6 +15,6 @@ import { SitesModule } from './sites/sites.module';
     SitesModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, GoogleStrategy],
 })
 export class AppModule {}
